@@ -1,0 +1,68 @@
+MAAT CODEX — on-chain manifest / полная карта инскрипции
+================================================================
+
+Book: "Architecture of Chaos. Architecture of Maat" (Egyptian Mysteries 5) + MAAT Manifesto
+Author: Telim Maat — House of the Transformed Ma'at (Pr en Ma'at Iret)
+Protocol: MAAT-CODEX-1 | leaf = sha256(chunk-utf8) | network: Ethereum mainnet
+Inscriber address: 0x6F248C06c4bDcf018181059BD1e7Cb4eb66226e0
+MAAT token (ERC-20): 0x1ae560e95d0c8ec6B338DeAD8f44A3BAeE48d4e9
+Reader: https://maatx.io/codex.html | maatx.eth | https://arweave.net/QYPJ6Ns9Q8vlSbMwuamhZaE1Hod4fkZaTVdh7e_SrqA
+Dune map: https://dune.com/queries/7637881
+
+################################################################
+EDITION: EN  title: Egyptian Mysteries 5 — Architecture of Chaos. Architecture of Maat
+Capstone tx: 0xb9096716d036dcbc36c1225593560e79a90408917f0417abdbb616dfa2b4f33a
+Merkle root: 0x2e3fee6917c84897d4b12121d73e94b329febff9b35e7f2003f504718ae21415
+################################################################
+
+  Document: Egyptian Mysteries 5 — Architecture of Chaos. Architecture of Maat (EN)
+  sha256(full): 0xb3226e3c0e7d09e2bba429b21d444acc6a67a32e6a018baa6583f98370ebd186
+  Pages (8):
+     1. 0xb9c253db04f7877eccee3aa493c1afa998eba15f5204338d5a09d14f7e38f643
+     2. 0xf3353e7c5aeb51c38dc3f382a01db4480dbf15e2329ac7e6e27da911ef5338bb
+     3. 0x7e521da5c7277aad99d60326549150079bfe75fdc468d71050bf227279f2bd6b
+     4. 0xdc428f3eda9fb917c75ee5f2b142d14ff693a2f919324181e156127045314477
+     5. 0xcf5d981669248d03ffa9d63404b214bf3ed791a3c7b843ee58fe878967ee6ef0
+     6. 0x70f716c63c247b8d64405764eca9654453f776d00747fb813c42c026981a6dec
+     7. 0xeae9eb05416b4cb82020714e96aaa850f8c2d0012d7b87211d565f1e1df833cd
+     8. 0x7efef27c559e9a38418d4c6032b66abdf2bf3a2e0c114ffe584821101b1d4489
+
+  Document: MAAT Manifesto (EN, current site version)
+  sha256(full): 0xe26f36cdeaa41e6d6d86346ab29bb511b2a5898b9b5c4dc1658302f752c483b2
+  Pages (1):
+     1. 0x9f490388e8488760b29f418e3b4437eb0cf2ee7d912adfb057690240f3b1f4c7
+
+################################################################
+EDITION: RU  title: Архитектура Хаоса. Архитектура Маат
+Capstone tx: 0xeefc221829506c54feba06848bd331b8d5bb5dcbad4d419159784e66791c1872
+Merkle root: 0xb755ab2b7f004f8a54c4ff3038f6bf67f3f99d341ba192df62aa479640edda9f
+################################################################
+
+  Document: Архитектура Хаоса. Архитектура Маат (RU)
+  sha256(full): 0xac3ceaaa8e1d5f9901d8fe544fe1aa19741cba0e6fdb1e4fb859799a533f2712
+  Pages (12):
+     1. 0xea86472cdede476b860bb612b28b18c5a6f469485609988e52b33660b1c8091a
+     2. 0xc92ebc5e4314ae31a852b10a2830d274ce4cecdd4726cbf4c3535f8b1ec0b3a5
+     3. 0x550c3f7eaeef0558bd001d57cf11a682cfeb94b17bf6edf7b314a295641233b0
+     4. 0x8b7cfb35edb823be8b97e6496e0443ac769fa0ea51dfa51124023ae64c20c8ae
+     5. 0x4829e026f4197cf2f9ac6de467d26af2b9c4c41c106695966d1d11e0e51b3d38
+     6. 0x86988ede36e9d7027f7e0a910cd9c293c13334c8626d596f60f355c2cc27cc1f
+     7. 0x5dd0b4076dc0ef4d7174d021025ba405cd36ee54a11126f30c33fc021e25550b
+     8. 0xde3f279592a67f19898215e866f145a67d90a74931a5d2d1a38cf9e5130553de
+     9. 0x9e6f4d4da0093b39f765629d39e14432f65d25c0bdd5124d8784c96e7cfe4b2c
+    10. 0x9c52be4f88d65c6e64fd6baf2ec42b59c9b6493237d247e82e61fe77c86d6d9c
+    11. 0x74851fffc519f7ecc291fe60e0f1e9013b57adf2673eff80d86ee623cbe3addf
+    12. 0xa30ec37e9239cea18f12f3f28834e57a71b73e7b5067be0e73698bbdc3706547
+
+  Document: Манифест MAAT (RU, актуальная версия с сайта)
+  sha256(full): 0x0f31d5e56e93a9dea1c26a19b89b0500b9e8b60a0a5b1080062b3eecf25b3827
+  Pages (1):
+     1. 0xcf64d6af83e9e00526211a15a8a573c839a60a0675779f4361e06b9170c9084f
+
+================================================================
+HOW TO RECOVER WITHOUT ANY WEBSITE:
+1. Open any page tx on an Ethereum explorer -> 'View Input As -> UTF-8' = the text.
+2. Concatenate a document's pages in order.
+3. Verify: sha256 each page -> Merkle tree (pairwise, duplicate last if odd) -> compare to Merkle root.
+Beacon tx: 0x1bc58747058ee84e9bf35f92514ac845305ce6bb8a0be155bc2cbcbaadec0008
+Ethscription tx: 0xd70fc74bb68e9df49792fe022ea032417c824dd505d77814a1d8a164408ff8ad
