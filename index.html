@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<style>
+:root{--bg:#eef2f7;--bg2:#e2e9f2;--surface:#f8fafc;--glow:#ffffff;
+--gold:#3f7aa6;--gold2:#2b5a7e;--gold-bright:#5a93c0;--gold-dim:#5e7c93;
+--ink:#16222e;--text:#26323d;--text2:#586572;--text3:#7d8a98;
+--border:#d3deeb;--border2:#3f7aa655;--on-accent:#ffffff;
+--radius:4px;--shadow-lg:0 16px 40px rgba(40,60,90,.10);--t:.3s ease;
+--font-serif:'PT Serif',Georgia,serif;--font-sans:'Raleway',-apple-system,BlinkMacSystemFont,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('maat_theme')||'skylight';if(t!=='papyrus')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<title>Кодекс MAAT — книга в Ethereum</title>
+<meta name="description" content="Кодекс MAAT: полный текст книги «Архитектура Хаоса. Архитектура Маат» и Манифест навечно записаны в блокчейн Ethereum. Страница читает книгу прямо из цепочки и проверяет Merkle-корень.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+.c-main{padding-top:46px;padding-bottom:90px;
+  background:radial-gradient(ellipse 90% 60% at 50% 0%,var(--glow) 0%,var(--bg) 50%,var(--bg2) 100%)}
+.c-container{max-width:840px;margin:0 auto;padding:0 24px}
+.c-head{text-align:center;margin-bottom:40px}
+.c-head .sigil{font-size:3.2rem;color:var(--gold);line-height:1;margin-bottom:16px}
+.c-kicker{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:16px}
+.c-head h1{font-family:var(--font-serif);font-size:clamp(2.6rem,6vw,4rem);font-weight:400;letter-spacing:.05em;color:var(--ink);line-height:1.05;margin-bottom:12px}
+.c-head .sub{color:var(--text2);font-style:italic;font-family:var(--font-serif);font-size:1.25rem}
+.c-langbar{display:flex;justify-content:center;gap:6px;margin-top:24px}
+.c-langbar button{background:transparent;border:1px solid var(--border2);color:var(--text2);
+  padding:8px 18px;border-radius:30px;cursor:pointer;font-family:var(--font-sans);font-size:.74rem;
+  font-weight:600;letter-spacing:.1em;text-transform:uppercase;transition:var(--t)}
+.c-langbar button:hover{color:var(--gold);border-color:var(--gold)}
+.c-langbar button.active{background:var(--gold);color:var(--on-accent);border-color:var(--gold)}
+
+.caprow{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:center;margin:0 auto 8px;max-width:680px}
+.caprow label{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);width:100%;text-align:center;margin-bottom:2px}
+.caprow input{flex:1;min-width:240px;border:1px solid var(--border);border-radius:10px;
+  padding:9px 12px;font-family:'Courier New',monospace;font-size:12px;background:var(--surface);color:var(--text)}
+.caprow button{border:none;background:var(--gold);color:var(--on-accent);border-radius:10px;
+  padding:10px 20px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.caprow button:disabled{opacity:.5;cursor:default}
+
+.status{font-size:.95rem;color:var(--text2);text-align:center;margin:18px 0;min-height:20px}
+.spin{display:inline-block;width:14px;height:14px;border:2px solid var(--border2);
+  border-top-color:var(--gold);border-radius:50%;animation:s .8s linear infinite;vertical-align:-2px}
+@keyframes s{to{transform:rotate(360deg)}}
+
+.tech{border:1px solid var(--border);background:var(--surface);border-radius:var(--radius);
+  box-shadow:var(--shadow-lg);margin:14px 0;overflow:hidden}
+.tech > summary{cursor:pointer;list-style:none;padding:18px 22px;font-weight:700;font-size:1.05rem;
+  font-family:var(--font-serif);display:flex;align-items:center;gap:10px;color:var(--ink)}
+.tech > summary::-webkit-details-marker{display:none}
+.tech > summary .chev{margin-left:auto;color:var(--gold);transition:transform .2s}
+.tech[open] > summary .chev{transform:rotate(90deg)}
+.tech .body{padding:0 22px 22px}
+.tech .lead{color:var(--text2);font-size:1.02rem;line-height:1.7;margin:0 0 16px}
+.tech .step{display:flex;gap:15px;padding:13px 0;border-top:1px solid var(--border)}
+.tech .num{flex:none;width:32px;height:32px;border-radius:50%;background:var(--gold);color:var(--on-accent);
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px}
+.tech .step h4{margin:4px 0 4px;font-size:1rem;color:var(--ink)}
+.tech .step p{margin:0;font-size:.94rem;color:var(--text2);line-height:1.6}
+.tech .tip{margin:16px 0 0;padding:13px 15px;border-radius:10px;background:var(--bg2);
+  font-size:.9rem;color:var(--text);border:1px dashed var(--border2)}
+
+.recover{border:1px solid var(--border);background:var(--surface);border-radius:var(--radius);
+  box-shadow:var(--shadow-lg);margin:14px 0;overflow:hidden}
+.recover > summary{cursor:pointer;list-style:none;padding:16px 22px;font-weight:700;font-size:1rem;
+  font-family:var(--font-serif);display:flex;align-items:center;gap:10px;color:var(--ink)}
+.recover > summary::-webkit-details-marker{display:none}
+.recover > summary .chev{margin-left:auto;color:var(--gold);transition:transform .2s}
+.recover[open] > summary .chev{transform:rotate(90deg)}
+.recover .body{padding:0 22px 22px}
+.recover .lead{color:var(--text2);font-size:.96rem;line-height:1.65;margin:0 0 14px}
+.rc-row{display:flex;flex-wrap:wrap;gap:2px 10px;padding:9px 0;border-top:1px solid var(--border)}
+.rc-l{color:var(--text3);min-width:100%;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+.rc-v{font-family:'Courier New',monospace;font-size:.85rem;color:var(--gold2);word-break:break-all}
+.rc-steps{margin:16px 0 0;padding-left:22px;color:var(--text2);font-size:.92rem;line-height:1.6}
+.rc-steps li{margin:6px 0}
+
+.pyramid{display:flex;flex-direction:column;align-items:center;gap:14px;margin:6px 0 20px;
+  padding:22px;background:var(--bg2);border:1px solid var(--border);border-radius:12px}
+.pyramid svg{width:210px;height:auto;max-width:100%;display:block}
+.pyr-legend{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:center;font-size:.82rem;color:var(--text2)}
+.pyr-legend span{display:inline-flex;align-items:center;gap:7px}
+.pyr-legend i{width:14px;height:14px;border-radius:3px;flex:none}
+.pyr-legend i.cap{background:var(--gold-bright)}
+.pyr-legend i.page{background:var(--gold2)}
+
+.verify{border-radius:var(--radius);padding:16px 18px;margin:16px 0;border:1px solid var(--border);background:var(--surface);font-size:.95rem}
+.verify.ok{border-color:#7bbf7e;background:rgba(46,125,50,.08)}
+.verify.bad{border-color:#d99a92;background:rgba(192,57,43,.08)}
+.verify .h{font-weight:700;font-size:1.05rem;display:flex;align-items:center;gap:8px;font-family:var(--font-serif)}
+.verify.ok .h{color:#2e7d32}.verify.bad .h{color:#c0392b}
+.verify code{font-family:'Courier New',monospace;font-size:11px;word-break:break-all;color:var(--text3)}
+
+.meta{font-size:.9rem;color:var(--text2);margin:6px 0}
+.meta a{color:var(--gold2)}
+.sources{margin:12px 0 4px}
+.sources summary{cursor:pointer;color:var(--gold2);font-size:.9rem}
+.sources ol{margin:8px 0;padding-left:24px}
+.sources li{margin:3px 0;font-family:'Courier New',monospace;font-size:.82rem}
+.sources a{color:var(--gold2);text-decoration:none}
+.sources a:hover{text-decoration:underline}
+
+.doc{margin-top:36px}
+.doc h2{font-family:var(--font-serif);font-size:1.5rem;color:var(--ink);
+  border-bottom:2px solid var(--gold);padding-bottom:8px;margin:0 0 8px}
+.book{font-family:'PT Serif',Georgia,'Times New Roman',serif;font-size:1.22rem;line-height:1.9;
+  letter-spacing:.003em;white-space:pre-wrap;word-wrap:break-word;color:var(--text);margin-top:18px;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+@media(max-width:600px){.book{font-size:1.12rem;line-height:1.82}}
+.c-back{display:block;text-align:center;margin-top:46px}
+.c-back a{color:var(--gold);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+</style>
+</head>
+<body>
+<main class="c-main">
+  <div class="c-container">
+    <div class="c-head">
+      <div class="sigil">☥</div>
+      <div class="c-kicker" id="cKicker">Книга в Ethereum</div>
+      <h1 id="cTitle">Кодекс MAAT</h1>
+      <div class="sub" id="cSub">«Архитектура Хаоса. Архитектура Маат» — навечно в блокчейне</div>
+      <div class="c-langbar">
+        <button id="cLangRu" onclick="setLang('ru')">RU</button>
+        <button id="cLangEn" onclick="setLang('en')">EN</button>
+      </div>
+    </div>
+
+    <div class="caprow">
+      <label id="capLabel">Капстоун (можно указать другой)</label>
+      <input id="capInput" spellcheck="false" value="0xb9096716d036dcbc36c1225593560e79a90408917f0417abdbb616dfa2b4f33a">
+      <button id="loadBtn" type="button">Прочитать</button>
+    </div>
+
+    <p class="status" id="status"></p>
+    <section id="tech" class="tech"></section>
+    <section id="recover" class="recover"></section>
+    <div id="verify"></div>
+    <div id="meta"></div>
+    <div id="content"></div>
+
+    <div class="c-back"><a href="index.html">← На главную / Back to home</a></div>
+  </div>
+</main>
+
+<script>
+const RPCS = [
+  'https://ethereum.publicnode.com',
+  'https://eth.llamarpc.com',
+  'https://rpc.ankr.com/eth',
+  'https://eth.drpc.org'
+];
+const ETHERSCAN = 'https://etherscan.io/tx/';
+const CAPSTONES = {
+  ru: '0xeefc221829506c54feba06848bd331b8d5bb5dcbad4d419159784e66791c1872',
+  en: '0xb9096716d036dcbc36c1225593560e79a90408917f0417abdbb616dfa2b4f33a'
+};
+const cache = {}; // cap -> state (чтобы не перечитывать блокчейн при переключении)
+const INSCRIBER = '0x6F248C06c4bDcf018181059BD1e7Cb4eb66226e0'; // адрес, с которого записаны все страницы
+let ARWEAVE_URL = 'https://arweave.net/QYPJ6Ns9Q8vlSbMwuamhZaE1Hod4fkZaTVdh7e_SrqA'; // вечное зеркало (Arweave)
+let lang = 'ru';
+try{
+  const saved = localStorage.getItem('maat_lang');
+  if(saved==='ru'||saved==='en') lang = saved;
+  else lang = (navigator.language||'').toLowerCase().startsWith('ru') ? 'ru' : 'en';
+}catch(e){}
+let state = null; // {manifest, docs:[{name,text,chunks}], root, ok}
+
+const T = {
+  ru:{
+    kicker:'Книга в Ethereum', title:'Кодекс MAAT',
+    sub:'«Архитектура Хаоса. Архитектура Маат» — навечно в блокчейне',
+    capLabel:'Капстоун (можно указать другой)', load:'Прочитать',
+    intro:'Этот текст не хранится на сервере. Он читается напрямую из блокчейна Ethereum: страница берёт «навершие» (капстоун-манифест), по нему находит транзакции-страницы, собирает текст и заново проверяет Merkle-корень. Пока существует Ethereum — существует книга.',
+    loadingCap:'Читаю капстоун из Ethereum…',
+    loadingChunks:'Собираю страницы из блокчейна',
+    verifyingMerkle:'Проверяю Merkle-корень…',
+    ok:'Целостность подтверждена',
+    okText:'Текст, собранный из блокчейна, полностью совпадает с Merkle-корнем, записанным в капстоуне. Книга подлинная и не изменена.',
+    bad:'Несовпадение Merkle-корня',
+    badText:'Собранный текст не сходится с записанным корнем. Возможно, указан другой капстоун.',
+    expected:'ожидаемый', got:'вычислен',
+    sources:'Источники в блокчейне (Etherscan)',
+    capstone:'Капстоун (навершие)', token:'Токен MAAT', created:'Записано', merkle:'Merkle-корень',
+    err:'Ошибка чтения: ',
+    tech:{
+      title:'Как это работает — и почему это вечно',
+      lead:'Обычно «книга в интернете» — это файл на чьём-то сервере: сервер выключили, домен забрали, файл подменили — и книги нет. Здесь иначе. Книга записана в саму ткань Ethereum — в десятки тысяч узлов по всему миру одновременно. Её нельзя удалить, подменить или зацензурировать. И это можно доказать математикой прямо в браузере.',
+      pyrCap:'капстоун — Merkle-корень',
+      pyrBase:'страницы — текст книги + Манифест',
+      steps:[
+        {h:'Текст → прямо в транзакции (calldata)', p:'Книгу и Манифест разрезали на «страницы» и записали в поле данных транзакций Ethereum. Текст лежит не на сервере и не в IPFS, а внутри самой цепочки. Открой любую страницу на Etherscan → «View Input As → UTF-8» — и увидишь живые строки книги.'},
+        {h:'Пирамида страниц + навершие', p:'8 транзакций с текстом книги и 1 с Манифестом — это основание пирамиды. Над ними — «капстоун»: одна транзакция-навершие, где перечислены все страницы по порядку и записан Merkle-корень.'},
+        {h:'Merkle-корень — математический отпечаток', p:'Из каждой страницы берётся криптографический хэш (SHA-256), хэши попарно сворачиваются вверх до единственного числа — корня. Измени хоть один символ в книге — корень не сойдётся. Это «печать подлинности», которую невозможно подделать.'},
+        {h:'Эта страница всё проверяет сама', p:'Браузер читает капстоун из блокчейна через публичные узлы, скачивает страницы, собирает текст обратно и заново вычисляет Merkle-корень. Совпало с записанным → зелёная плашка «Целостность подтверждена». Ты доверяешь математике, а не нам.'},
+        {h:'Вечно и без посредников', p:'Пока работает Ethereum — работает книга. Нет сервера, который можно выключить; нет владельца, который может переписать. Любой человек в любой стране может прочитать и проверить её — сегодня и через сто лет.'}
+      ],
+      tip:'Хочешь убедиться руками? Открой любую ссылку в «Источниках в блокчейне» ниже → на Etherscan нажми «View Input As → UTF-8» и читай книгу прямо из транзакции.'
+    },
+    recover:{
+      title:'Если этот сайт исчезнет — как найти книгу',
+      lead:'Книга живёт в самом Ethereum, а не на этом сайте. Чтобы прочитать её без maatx.io, достаточно сохранить эти «координаты» — с них книгу можно восстановить вручную, даже без программистов:',
+      addr:'Адрес-инскрайбер (с него отправлены все страницы)',
+      capru:'Капстоун — русская книга',
+      capen:'Капстоун — английская книга',
+      mirror:'Вечное зеркало этой страницы (Arweave)',
+      steps:[
+        'Открой адрес инскрайбера на Etherscan (или любом обозревателе Ethereum) — там видны все транзакции-страницы.',
+        'Найди транзакцию-капстоун: в её данных — JSON «MAAT-CODEX-1» со списком всех страниц по порядку и Merkle-корнем.',
+        'Для каждой страницы открой транзакцию → «View Input As → UTF-8» → это и есть текст книги.',
+        'Склей страницы по порядку. Сверь Merkle-корень (SHA-256) — так убедишься, что текст подлинный и не изменён.'
+      ]
+    }
+  },
+  en:{
+    kicker:'The book inside Ethereum', title:'MAAT Codex',
+    sub:'«Architecture of Chaos. Architecture of Maat» — forever on-chain',
+    capLabel:'Capstone (you may enter another)', load:'Read',
+    intro:'This text is not stored on a server. It is read straight from the Ethereum blockchain: the page loads the capstone manifest, follows it to the page-transactions, reassembles the text and re-verifies the Merkle root. As long as Ethereum exists, the book exists.',
+    loadingCap:'Reading capstone from Ethereum…',
+    loadingChunks:'Reassembling pages from the chain',
+    verifyingMerkle:'Verifying Merkle root…',
+    ok:'Integrity verified',
+    okText:'The text reassembled from the chain matches the Merkle root recorded in the capstone. The book is authentic and unaltered.',
+    bad:'Merkle root mismatch',
+    badText:'The reassembled text does not match the recorded root. A different capstone may have been provided.',
+    expected:'expected', got:'computed',
+    sources:'On-chain sources (Etherscan)',
+    capstone:'Capstone', token:'MAAT token', created:'Inscribed', merkle:'Merkle root',
+    err:'Read error: ',
+    tech:{
+      title:'How it works — and why it’s forever',
+      lead:'Normally a “book on the internet” is just a file on someone’s server: shut down the server, seize the domain, swap the file — and the book is gone. Not here. This book is written into the very fabric of Ethereum — into tens of thousands of nodes worldwide at once. It cannot be deleted, altered or censored. And you can prove it with math, right in your browser.',
+      pyrCap:'capstone — Merkle root',
+      pyrBase:'pages — book text + Manifesto',
+      steps:[
+        {h:'Text → straight into transactions (calldata)', p:'The book and the Manifesto were split into “pages” and written into the data field of Ethereum transactions. The text lives not on a server, nor on IPFS, but inside the chain itself. Open any page on Etherscan → “View Input As → UTF-8” and read the book’s living lines.'},
+        {h:'A pyramid of pages + a capstone', p:'8 transactions carry the book and 1 carries the Manifesto — the base of the pyramid. Above them sits the “capstone”: a single apex transaction listing every page in order and recording the Merkle root.'},
+        {h:'The Merkle root — a mathematical fingerprint', p:'Each page is hashed (SHA-256); the hashes are folded pairwise upward into a single number — the root. Change one character anywhere and the root no longer matches. It is a seal of authenticity that cannot be forged.'},
+        {h:'This page verifies everything itself', p:'Your browser reads the capstone from the chain via public nodes, downloads the pages, reassembles the text and recomputes the Merkle root. If it matches the recorded one → the green “Integrity verified” banner. You trust the math, not us.'},
+        {h:'Permanent, no middlemen', p:'As long as Ethereum runs, the book runs. There is no server to switch off, no owner who can rewrite it. Anyone, anywhere, can read and verify it — today and a hundred years from now.'}
+      ],
+      tip:'Want to check it by hand? Open any link in “On-chain sources” below → on Etherscan click “View Input As → UTF-8” and read the book straight from the transaction.'
+    },
+    recover:{
+      title:'If this site disappears — how to find the book',
+      lead:'The book lives inside Ethereum itself, not on this site. To read it without maatx.io you only need to keep these “coordinates” — the book can be reconstructed by hand from them, even without programmers:',
+      addr:'Inscriber address (every page was sent from it)',
+      capru:'Capstone — Russian book',
+      capen:'Capstone — English book',
+      mirror:'Permanent mirror of this page (Arweave)',
+      steps:[
+        'Open the inscriber address on Etherscan (or any Ethereum explorer) — all page-transactions are listed there.',
+        'Find the capstone transaction: its data holds the “MAAT-CODEX-1” JSON with the ordered list of all pages and the Merkle root.',
+        'For each page, open the transaction → “View Input As → UTF-8” → that is the book’s text.',
+        'Concatenate the pages in order. Recompute the Merkle root (SHA-256) to confirm the text is authentic and unaltered.'
+      ]
+    }
+  }
+};
+
+const $ = id => document.getElementById(id);
+const esc = s => (s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+
+function applyChrome(){
+  const t = T[lang];
+  document.documentElement.lang = lang;
+  document.title = t.title + ' — ' + (lang==='ru'?'книга в Ethereum':'the book inside Ethereum');
+  $('cKicker').textContent = t.kicker;
+  $('cTitle').textContent = t.title;
+  $('cSub').textContent = t.sub;
+  $('capLabel').textContent = t.capLabel;
+  $('loadBtn').textContent = t.load;
+  $('cLangRu').classList.toggle('active', lang==='ru');
+  $('cLangEn').classList.toggle('active', lang==='en');
+  renderTech(t.tech);
+  renderRecover(t.recover);
+}
+function renderRecover(r){
+  const d=document.querySelector('#recover');
+  const wasOpen = d && d.tagName==='DETAILS' ? d.open : false; // по умолчанию свёрнут
+  const row=(label,val,href)=>'<div class="rc-row"><span class="rc-l">'+esc(label)+'</span>'+
+    '<a class="rc-v" href="'+href+'" target="_blank" rel="noopener">'+esc(val)+'</a></div>';
+  const mirror = ARWEAVE_URL ? row(r.mirror, ARWEAVE_URL, ARWEAVE_URL) : '';
+  const steps = r.steps.map(s=>'<li>'+esc(s)+'</li>').join('');
+  $('recover').outerHTML =
+    '<details id="recover" class="recover"'+(wasOpen?' open':'')+'>'+
+      '<summary>🛡 '+esc(r.title)+'<span class="chev">▶</span></summary>'+
+      '<div class="body">'+
+        '<p class="lead">'+esc(r.lead)+'</p>'+
+        row(r.addr, INSCRIBER, 'https://etherscan.io/address/'+INSCRIBER)+
+        row(r.capru, CAPSTONES.ru, ETHERSCAN+CAPSTONES.ru)+
+        row(r.capen, CAPSTONES.en, ETHERSCAN+CAPSTONES.en)+
+        mirror+
+        '<ol class="rc-steps">'+steps+'</ol>'+
+      '</div>'+
+    '</details>';
+}
+function setLang(l){
+  if(l!=='ru'&&l!=='en') l='ru';
+  lang = l;
+  try{ localStorage.setItem('maat_lang', l); }catch(e){}
+  applyChrome();
+  const cap = CAPSTONES[lang];
+  $('capInput').value = cap;
+  load(cap);
+}
+
+function renderTech(tech){
+  const wasOpen = (()=>{ const d=document.querySelector('#tech'); return d && d.tagName==='DETAILS' ? d.open : true; })();
+  const steps = tech.steps.map((s,i)=>
+    '<div class="step"><div class="num">'+(i+1)+'</div><div><h4>'+esc(s.h)+'</h4><p>'+esc(s.p)+'</p></div></div>').join('');
+  const pyramid =
+    '<div class="pyramid">'+
+      '<svg viewBox="0 0 220 168" role="img" aria-label="pyramid">'+
+        '<polygon points="110,8 206,160 14,160" fill="var(--gold2)"/>'+
+        '<polygon points="110,8 134,46 86,46" fill="var(--gold-bright)"/>'+
+        '<line x1="86" y1="46" x2="134" y2="46" stroke="var(--bg2)" stroke-width="1.5" opacity=".85"/>'+
+        '<line x1="64" y1="82" x2="156" y2="82" stroke="var(--bg2)" stroke-width="1.5" opacity=".5"/>'+
+        '<line x1="40" y1="121" x2="180" y2="121" stroke="var(--bg2)" stroke-width="1.5" opacity=".5"/>'+
+      '</svg>'+
+      '<div class="pyr-legend">'+
+        '<span><i class="cap"></i>'+esc(tech.pyrCap)+'</span>'+
+        '<span><i class="page"></i>'+esc(tech.pyrBase)+'</span>'+
+      '</div>'+
+    '</div>';
+  $('tech').outerHTML =
+    '<details id="tech" class="tech"'+(wasOpen?' open':'')+'>'+
+      '<summary>☥ '+esc(tech.title)+'<span class="chev">▶</span></summary>'+
+      '<div class="body"><p class="lead">'+esc(tech.lead)+'</p>'+pyramid+steps+
+        '<p class="tip">'+esc(tech.tip)+'</p></div>'+
+    '</details>';
+}
+
+async function rpc(method, params){
+  let lastErr;
+  for(const url of RPCS){
+    try{
+      const r = await fetch(url,{method:'POST',headers:{'content-type':'application/json'},
+        body:JSON.stringify({jsonrpc:'2.0',id:1,method,params})});
+      const j = await r.json();
+      if(j.error) throw new Error(j.error.message||'rpc error');
+      if(j.result === null || j.result === undefined) throw new Error('null result');
+      return j.result;
+    }catch(e){ lastErr = e; }
+  }
+  throw lastErr || new Error('all RPCs failed');
+}
+const getInput = async (tx)=>{ const t = await rpc('eth_getTransactionByHash',[tx]); if(!t) throw new Error('tx not found: '+tx); return t.input; };
+function hexToBytes(hex){ hex=hex.replace(/^0x/,''); const o=new Uint8Array(hex.length/2);
+  for(let i=0;i<o.length;i++) o[i]=parseInt(hex.substr(i*2,2),16); return o; }
+const dec = new TextDecoder('utf-8');
+async function sha256(b){ return new Uint8Array(await crypto.subtle.digest('SHA-256', b)); }
+function toHex(b){ return [...b].map(x=>x.toString(16).padStart(2,'0')).join(''); }
+function concat(a,b){ const o=new Uint8Array(a.length+b.length); o.set(a,0); o.set(b,a.length); return o; }
+async function merkleRoot(leaves){
+  if(leaves.length===0) return '0x'+'00'.repeat(32);
+  let layer=leaves.slice();
+  while(layer.length>1){ const nx=[]; for(let i=0;i<layer.length;i+=2){ const a=layer[i],b=layer[i+1]||layer[i]; nx.push(await sha256(concat(a,b))); } layer=nx; }
+  return '0x'+toHex(layer[0]);
+}
+
+async function load(cap){
+  const t = T[lang];
+  if(cache[cap]){ state = cache[cap]; renderResult(); return; }
+  $('verify').innerHTML=''; $('meta').innerHTML=''; $('content').innerHTML=''; state=null;
+  $('loadBtn').disabled = true;
+  try{
+    $('status').innerHTML = '<span class="spin"></span> '+t.loadingCap;
+    const capText = dec.decode(hexToBytes(await getInput(cap)));
+    const nl = capText.indexOf('\n');
+    const manifest = JSON.parse(nl>=0 ? capText.slice(nl+1) : capText);
+
+    const docs=[]; const allLeaves=[];
+    for(const d of (manifest.documents||[])){
+      $('status').innerHTML = '<span class="spin"></span> '+t.loadingChunks+' — '+esc(d.name);
+      const parts=[];
+      for(const tx of d.chunks){ const bytes=hexToBytes(await getInput(tx)); parts.push(bytes); allLeaves.push(await sha256(bytes)); }
+      let total=0; parts.forEach(p=>total+=p.length);
+      const full=new Uint8Array(total); let off=0; parts.forEach(p=>{full.set(p,off);off+=p.length;});
+      docs.push({ name:d.name, chunks:d.chunks, text:dec.decode(full) });
+    }
+    $('status').innerHTML = '<span class="spin"></span> '+t.verifyingMerkle;
+    const root = await merkleRoot(allLeaves);
+    const ok = root.toLowerCase() === (manifest.merkleRoot||'').toLowerCase();
+    state = { cap, manifest, docs, root, ok };
+    cache[cap] = state;
+    renderResult();
+  }catch(e){
+    $('status').innerHTML = '<span style="color:var(--text2)">'+T[lang].err+esc(e.message||String(e))+'</span>';
+  }finally{
+    $('loadBtn').disabled = false;
+  }
+}
+
+function renderResult(){
+  if(!state) return;
+  const t = T[lang]; const {cap, manifest, docs, root, ok} = state;
+  $('status').textContent = '';
+  $('verify').innerHTML =
+    '<div class="verify '+(ok?'ok':'bad')+'">'+
+      '<div class="h">'+(ok?'✓ '+t.ok:'✕ '+t.bad)+'</div>'+
+      '<div style="margin:6px 0">'+(ok?t.okText:t.badText)+'</div>'+
+      '<div><code>'+t.merkle+' ('+t.expected+'): '+esc(manifest.merkleRoot)+'</code></div>'+
+      (ok?'':'<div><code>'+t.merkle+' ('+t.got+'): '+esc(root)+'</code></div>')+
+    '</div>';
+
+  let srcHtml='<details class="sources"><summary>'+t.sources+'</summary>';
+  for(const d of docs){
+    srcHtml += '<div style="margin-top:8px"><b style="font-family:var(--font-serif)">'+esc(d.name)+'</b><ol>';
+    for(const tx of d.chunks) srcHtml += '<li><a href="'+ETHERSCAN+tx+'" target="_blank" rel="noopener">'+tx.slice(0,22)+'…</a></li>';
+    srcHtml += '</ol></div>';
+  }
+  srcHtml += '</details>';
+  $('meta').innerHTML =
+    '<div class="meta"><b>'+esc(manifest.title)+'</b> · '+esc((manifest.lang||'').toUpperCase())+'</div>'+
+    '<div class="meta">'+t.created+': '+esc(manifest.createdAt||'')+'</div>'+
+    '<div class="meta">'+t.token+': <a href="https://etherscan.io/token/'+esc(manifest.token)+'" target="_blank" rel="noopener">'+esc(manifest.token)+'</a></div>'+
+    '<div class="meta">'+t.capstone+': <a href="'+ETHERSCAN+cap+'" target="_blank" rel="noopener">'+cap.slice(0,18)+'…</a></div>'+
+    srcHtml;
+
+  let html='';
+  for(const d of docs) html += '<section class="doc"><h2>'+esc(d.name)+'</h2><div class="book">'+esc(d.text)+'</div></section>';
+  $('content').innerHTML = html;
+}
+
+$('loadBtn').addEventListener('click', ()=>{
+  const cap = $('capInput').value.trim();
+  if(/^0x[0-9a-fA-F]{64}$/.test(cap)) load(cap);
+  else $('status').innerHTML='<span style="color:var(--text2)">invalid tx hash</span>';
+});
+
+applyChrome();
+$('capInput').value = CAPSTONES[lang];
+$('status').textContent = T[lang].intro;
+load(CAPSTONES[lang]);
+</script>
+
+<footer style="max-width:840px;margin:0 auto;padding:34px 24px 70px;color:var(--text2);font-size:.85rem;text-align:center">
+<p>&copy; 2026 Дом Изменённых Маат · Pr en Maat Iret · <a href="https://maatx.io" style="color:var(--gold2)">maatx.io</a></p>
+<p style="color:var(--text3)">Эта копия живёт в Arweave и читает книгу напрямую из Ethereum — она не зависит от сервера maatx.io. / This copy lives on Arweave and reads the book directly from Ethereum — independent of the maatx.io server.</p>
+</footer>
+</body>
+</html>
