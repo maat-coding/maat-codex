@@ -29,12 +29,14 @@ a{color:inherit}
 .c-kicker{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:16px}
 .c-head h1{font-family:var(--font-serif);font-size:clamp(2.6rem,6vw,4rem);font-weight:400;letter-spacing:.05em;color:var(--ink);line-height:1.05;margin-bottom:12px}
 .c-head .sub{color:var(--text2);font-style:italic;font-family:var(--font-serif);font-size:1.25rem}
-.c-langbar{display:flex;justify-content:center;gap:6px;margin-top:24px}
-.c-langbar button{background:transparent;border:1px solid var(--border2);color:var(--text2);
+.c-langbar,.c-bookbar{display:flex;justify-content:center;gap:6px;margin-top:24px;flex-wrap:wrap}
+.c-bookbar{margin-top:14px}
+.c-langbar button,.c-bookbar button{background:transparent;border:1px solid var(--border2);color:var(--text2);
   padding:8px 18px;border-radius:30px;cursor:pointer;font-family:var(--font-sans);font-size:.74rem;
   font-weight:600;letter-spacing:.1em;text-transform:uppercase;transition:var(--t)}
-.c-langbar button:hover{color:var(--gold);border-color:var(--gold)}
-.c-langbar button.active{background:var(--gold);color:var(--on-accent);border-color:var(--gold)}
+.c-bookbar button{padding:7px 14px;font-size:.7rem}
+.c-langbar button:hover,.c-bookbar button:hover{color:var(--gold);border-color:var(--gold)}
+.c-langbar button.active,.c-bookbar button.active{background:var(--gold);color:var(--on-accent);border-color:var(--gold)}
 
 .caprow{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:center;margin:0 auto 8px;max-width:680px}
 .caprow label{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);width:100%;text-align:center;margin-bottom:2px}
@@ -78,6 +80,8 @@ a{color:inherit}
 .rc-row{display:flex;flex-wrap:wrap;gap:2px 10px;padding:9px 0;border-top:1px solid var(--border)}
 .rc-l{color:var(--text3);min-width:100%;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
 .rc-v{font-family:'Courier New',monospace;font-size:.85rem;color:var(--gold2);word-break:break-all}
+.rc-head{margin:16px 0 2px;font-family:var(--font-serif);font-weight:700;color:var(--ink);font-size:1rem;border-top:2px solid var(--gold);padding-top:12px}
+.rc-book{margin:14px 0 0;font-weight:700;color:var(--gold2);font-size:.82rem;letter-spacing:.04em}
 .rc-steps{margin:16px 0 0;padding-left:22px;color:var(--text2);font-size:.92rem;line-height:1.6}
 .rc-steps li{margin:6px 0}
 
@@ -125,6 +129,7 @@ a{color:inherit}
       <div class="c-kicker" id="cKicker">Книга в Ethereum</div>
       <h1 id="cTitle">Кодекс MAAT</h1>
       <div class="sub" id="cSub">«Архитектура Хаоса. Архитектура Маат» — навечно в блокчейне</div>
+      <div class="c-bookbar" id="cBookbar"></div>
       <div class="c-langbar">
         <button id="cLangRu" onclick="setLang('ru')">RU</button>
         <button id="cLangEn" onclick="setLang('en')">EN</button>
@@ -156,13 +161,45 @@ const RPCS = [
   'https://eth.drpc.org'
 ];
 const ETHERSCAN = 'https://etherscan.io/tx/';
-const CAPSTONES = {
-  ru: '0xeefc221829506c54feba06848bd331b8d5bb5dcbad4d419159784e66791c1872',
-  en: '0xb9096716d036dcbc36c1225593560e79a90408917f0417abdbb616dfa2b4f33a'
-};
+// Вся серия «Египетские Мистерии», навечно в Ethereum. Для каждой книги — капстоуны (по языку),
+// маяк (beacon) и ethscription-запись в on-chain каталоге.
+const BOOKS = [
+  { n:1, label:{ru:'Книга 1',en:'Book 1'},
+    sub:{ru:'Книга первая — История · Мистерии · Исфет · Защита и Мост', en:'Book One — The Story of One Path'},
+    title:{ru:'ЕГИПЕТСКИЕ МИСТЕРИИ. КНИГА ПЕРВАЯ', en:'EGYPTIAN MYSTERIES · BOOK ONE'},
+    cap:{ru:'0xefde4918e5149898261062b0a60398ff462ca92e341f3fd7c7e11d21418bf21c', en:'0x8c11bca2c911eb9c4c0c9b71a11ed3c312b1bb8e432a6b9ac13f128a75279ecd'},
+    beacon:'0xf4bfbc14547619cbcc1ffebc1f3a452acfea7308b950507a27b539b7c3bdab85', eth:'0xcff50945bee09bf89b98d4f23a07256c5310acee93cebe0c840ef223ebc6238d' },
+  { n:2, label:{ru:'Книга 2',en:'Book 2'},
+    sub:{ru:'Книга вторая — Ключи Осириса', en:'Book Two — Keys of Osiris'},
+    title:{ru:'ЕГИПЕТСКИЕ МИСТЕРИИ — 2. КЛЮЧИ ОСИРИСА', en:'EGYPTIAN MYSTERIES · BOOK TWO'},
+    cap:{ru:'0x5dfc340e7dd2f7b356925041eeb11d353dcb19a9dbcf6249c9766e221519d970', en:'0x4b26a8ebc2e09eee199b5335e78b402f8fe49d12f530c4fa345f026eaea5da7d'},
+    beacon:'0xe84eee21a95b5922e2551b62c8a2a3ea61747d193bb8cd6e1982212dde97e4da', eth:'0xf3306939ba89ae3db1fb5db2961c6859dadc122f7444dc992aaefca045a25339' },
+  { n:3, label:{ru:'Книга 3',en:'Book 3'},
+    sub:{ru:'Книга третья — Ключи Анубиса', en:'Book Three — Keys of Anubis'},
+    title:{ru:'ЕГИПЕТСКИЕ МИСТЕРИИ — 3. КЛЮЧИ АНУБИСА', en:'EGYPTIAN MYSTERIES · BOOK THREE'},
+    cap:{ru:'0x7de6c08aec8cead78dc0c4cd228dce2401cedeac5fed2e6434a14cc040415468', en:'0xd676dcf917ee0fed2de4c5dc432c4c8f8dc955dbe949d79faaa7b096d07693ca'},
+    beacon:'0x6f6dac35efc2400e8fa85bb0dff532da52b5adc668a62c14444a61ca69c87758', eth:'0xb1e6cac04ad1589e4eee6195a74e440b200a375e5d9bf0feda49c2d6c0e9de25' },
+  { n:4, label:{ru:'Книга 4',en:'Book 4'},
+    sub:{ru:'Книга четвёртая — Семь Ключей', en:'Book Four — Seven Keys'},
+    title:{ru:'ЕГИПЕТСКИЕ МИСТЕРИИ — 4', en:'Seven Keys · Heka · Isfet · Transformation'},
+    cap:{ru:'0x3351ac5e4b52b0038e2d0b817835e6cd3131806b11c8f3b237135a8b122fd67b', en:'0x9637c5add2af51f5fcacaf4f94cd8db40d5e7e13d251b538049bf45dff3b4297'},
+    beacon:'0x47a02bc0ca10f44adeb2fc6f863df8884971366e3482c598e1c255ee2abedd0a', eth:'0xf95c31c9e6c29da77950f2b500f86f31aa0502eacc1554524b90e723cd0562d7' },
+  { n:5, label:{ru:'Книга 5',en:'Book 5'},
+    sub:{ru:'«Архитектура Хаоса. Архитектура Маат» — навечно в блокчейне', en:'«Architecture of Chaos. Architecture of Maat» — forever on-chain'},
+    title:{ru:'Архитектура Хаоса. Архитектура Маат', en:'Architecture of Chaos. Architecture of Maat'},
+    cap:{ru:'0xeefc221829506c54feba06848bd331b8d5bb5dcbad4d419159784e66791c1872', en:'0xb9096716d036dcbc36c1225593560e79a90408917f0417abdbb616dfa2b4f33a'},
+    beacon:'0x1bc58747058ee84e9bf35f92514ac845305ce6bb8a0be155bc2cbcbaadec0008', eth:'0xd70fc74bb68e9df49792fe022ea032417c824dd505d77814a1d8a164408ff8ad' },
+];
+let curBook = 5;
+const bookByN = (n) => BOOKS.find(b => b.n === n) || BOOKS[BOOKS.length-1];
+const curCap = (l) => bookByN(curBook).cap[l];
+const CAPSTONES = { get ru(){return curCap('ru');}, get en(){return curCap('en');} };
 const cache = {}; // cap -> state (чтобы не перечитывать блокчейн при переключении)
 const INSCRIBER = '0x6F248C06c4bDcf018181059BD1e7Cb4eb66226e0'; // адрес, с которого записаны все страницы
-let ARWEAVE_URL = 'https://arweave.net/QYPJ6Ns9Q8vlSbMwuamhZaE1Hod4fkZaTVdh7e_SrqA'; // вечное зеркало (Arweave)
+let ARWEAVE_URL = 'https://arweave.net/UVveKYDwTF-uobcZ_ylAD90ujUqozrZ-OjhkuNljbj4'; // вечное зеркало (Arweave) — все книги
+const ENS_URL = 'https://maatx.eth.limo';
+const GITHUB_URL = 'https://maat-coding.github.io/maat-codex/';
+const DUNE_URL = 'https://dune.com/queries/7637881';
 let lang = 'ru';
 try{
   const saved = localStorage.getItem('maat_lang');
@@ -203,15 +240,18 @@ const T = {
       tip:'Хочешь убедиться руками? Открой любую ссылку в «Источниках в блокчейне» ниже → на Etherscan нажми «View Input As → UTF-8» и читай книгу прямо из транзакции.'
     },
     recover:{
-      title:'Если этот сайт исчезнет — как найти книгу',
-      lead:'Книга живёт в самом Ethereum, а не на этом сайте. Чтобы прочитать её без maatx.io, достаточно сохранить эти «координаты» — с них книгу можно восстановить вручную, даже без программистов:',
-      addr:'Адрес-инскрайбер (с него отправлены все страницы)',
-      capru:'Капстоун — русская книга',
-      capen:'Капстоун — английская книга',
-      mirror:'Вечное зеркало этой страницы (Arweave)',
+      title:'Если этот сайт исчезнет — как найти книги',
+      lead:'Книги живут в самом Ethereum, а не на этом сайте. Чтобы прочитать их без maatx.io, достаточно сохранить эти «координаты» — с них любую книгу можно восстановить вручную, даже без программистов:',
+      addr:'Адрес-инскрайбер (с него отправлены все страницы всех книг)',
+      booksTitle:'Капстоуны книг (навершия)',
+      capRu:'Капстоун · RU', capEn:'Капстоун · EN', beacon:'Маяк (описание в цепи)', eth:'Ethscription (каталог)',
+      mirrorsTitle:'Зеркала этой страницы',
+      mirArweave:'Arweave — вечный хостинг', mirEns:'ENS-имя — maatx.eth', mirGithub:'GitHub — исходник + инструкция',
+      findTitle:'Как найти книги в цепи',
+      findDune:'Dune — карта всех страниц',
       steps:[
-        'Открой адрес инскрайбера на Etherscan (или любом обозревателе Ethereum) — там видны все транзакции-страницы.',
-        'Найди транзакцию-капстоун: в её данных — JSON «MAAT-CODEX-1» со списком всех страниц по порядку и Merkle-корнем.',
+        'Открой адрес инскрайбера на Etherscan (или любом обозревателе Ethereum) — там видны все транзакции-страницы всех книг.',
+        'Найди транзакцию-капстоун нужной книги: в её данных — JSON «MAAT-CODEX-1» со списком всех страниц по порядку и Merkle-корнем.',
         'Для каждой страницы открой транзакцию → «View Input As → UTF-8» → это и есть текст книги.',
         'Склей страницы по порядку. Сверь Merkle-корень (SHA-256) — так убедишься, что текст подлинный и не изменён.'
       ]
@@ -248,15 +288,18 @@ const T = {
       tip:'Want to check it by hand? Open any link in “On-chain sources” below → on Etherscan click “View Input As → UTF-8” and read the book straight from the transaction.'
     },
     recover:{
-      title:'If this site disappears — how to find the book',
-      lead:'The book lives inside Ethereum itself, not on this site. To read it without maatx.io you only need to keep these “coordinates” — the book can be reconstructed by hand from them, even without programmers:',
-      addr:'Inscriber address (every page was sent from it)',
-      capru:'Capstone — Russian book',
-      capen:'Capstone — English book',
-      mirror:'Permanent mirror of this page (Arweave)',
+      title:'If this site disappears — how to find the books',
+      lead:'The books live inside Ethereum itself, not on this site. To read them without maatx.io you only need to keep these “coordinates” — any book can be reconstructed by hand from them, even without programmers:',
+      addr:'Inscriber address (every page of every book was sent from it)',
+      booksTitle:'Book capstones (apex transactions)',
+      capRu:'Capstone · RU', capEn:'Capstone · EN', beacon:'Beacon (description on-chain)', eth:'Ethscription (catalog)',
+      mirrorsTitle:'Mirrors of this page',
+      mirArweave:'Arweave — permanent hosting', mirEns:'ENS name — maatx.eth', mirGithub:'GitHub — source + instructions',
+      findTitle:'How to discover the books on-chain',
+      findDune:'Dune — map of all pages',
       steps:[
-        'Open the inscriber address on Etherscan (or any Ethereum explorer) — all page-transactions are listed there.',
-        'Find the capstone transaction: its data holds the “MAAT-CODEX-1” JSON with the ordered list of all pages and the Merkle root.',
+        'Open the inscriber address on Etherscan (or any Ethereum explorer) — all page-transactions of all books are listed there.',
+        'Find the capstone transaction of the book you want: its data holds the “MAAT-CODEX-1” JSON with the ordered list of all pages and the Merkle root.',
         'For each page, open the transaction → “View Input As → UTF-8” → that is the book’s text.',
         'Concatenate the pages in order. Recompute the Merkle root (SHA-256) to confirm the text is authentic and unaltered.'
       ]
@@ -273,20 +316,44 @@ function applyChrome(){
   document.title = t.title + ' — ' + (lang==='ru'?'книга в Ethereum':'the book inside Ethereum');
   $('cKicker').textContent = t.kicker;
   $('cTitle').textContent = t.title;
-  $('cSub').textContent = t.sub;
+  $('cSub').textContent = bookByN(curBook).sub[lang];
   $('capLabel').textContent = t.capLabel;
   $('loadBtn').textContent = t.load;
   $('cLangRu').classList.toggle('active', lang==='ru');
   $('cLangEn').classList.toggle('active', lang==='en');
+  renderBooks();
   renderTech(t.tech);
   renderRecover(t.recover);
+}
+function renderBooks(){
+  const bar = $('cBookbar'); if(!bar) return;
+  bar.innerHTML = BOOKS.map(b =>
+    '<button type="button" data-n="'+b.n+'"'+(b.n===curBook?' class="active"':'')+'>'+esc(b.label[lang])+'</button>'
+  ).join('');
+  bar.querySelectorAll('button').forEach(btn =>
+    btn.addEventListener('click', ()=>setBook(Number(btn.dataset.n))));
+}
+function setBook(n){
+  if(!BOOKS.some(b=>b.n===n)) return;
+  curBook = n;
+  try{ localStorage.setItem('maat_book', String(n)); }catch(e){}
+  applyChrome();
+  const cap = curCap(lang);
+  $('capInput').value = cap;
+  load(cap);
 }
 function renderRecover(r){
   const d=document.querySelector('#recover');
   const wasOpen = d && d.tagName==='DETAILS' ? d.open : false; // по умолчанию свёрнут
   const row=(label,val,href)=>'<div class="rc-row"><span class="rc-l">'+esc(label)+'</span>'+
     '<a class="rc-v" href="'+href+'" target="_blank" rel="noopener">'+esc(val)+'</a></div>';
-  const mirror = ARWEAVE_URL ? row(r.mirror, ARWEAVE_URL, ARWEAVE_URL) : '';
+  const books = BOOKS.map(b =>
+    '<div class="rc-book">'+esc(b.label[lang]+' — '+b.title[lang])+'</div>'+
+    row(r.capRu, b.cap.ru, ETHERSCAN+b.cap.ru)+
+    row(r.capEn, b.cap.en, ETHERSCAN+b.cap.en)+
+    row(r.beacon, b.beacon, ETHERSCAN+b.beacon)+
+    row(r.eth, b.eth, ETHERSCAN+b.eth)
+  ).join('');
   const steps = r.steps.map(s=>'<li>'+esc(s)+'</li>').join('');
   $('recover').outerHTML =
     '<details id="recover" class="recover"'+(wasOpen?' open':'')+'>'+
@@ -294,9 +361,13 @@ function renderRecover(r){
       '<div class="body">'+
         '<p class="lead">'+esc(r.lead)+'</p>'+
         row(r.addr, INSCRIBER, 'https://etherscan.io/address/'+INSCRIBER)+
-        row(r.capru, CAPSTONES.ru, ETHERSCAN+CAPSTONES.ru)+
-        row(r.capen, CAPSTONES.en, ETHERSCAN+CAPSTONES.en)+
-        mirror+
+        '<div class="rc-head">'+esc(r.booksTitle)+'</div>'+ books +
+        '<div class="rc-head">'+esc(r.mirrorsTitle)+'</div>'+
+        (ARWEAVE_URL ? row(r.mirArweave, ARWEAVE_URL, ARWEAVE_URL) : '')+
+        row(r.mirEns, ENS_URL, ENS_URL)+
+        row(r.mirGithub, GITHUB_URL, GITHUB_URL)+
+        '<div class="rc-head">'+esc(r.findTitle)+'</div>'+
+        row(r.findDune, DUNE_URL, DUNE_URL)+
         '<ol class="rc-steps">'+steps+'</ol>'+
       '</div>'+
     '</details>';
@@ -435,6 +506,7 @@ $('loadBtn').addEventListener('click', ()=>{
   else $('status').innerHTML='<span style="color:var(--text2)">invalid tx hash</span>';
 });
 
+try{ const sb=Number(localStorage.getItem('maat_book')); if(BOOKS.some(b=>b.n===sb)) curBook=sb; }catch(e){}
 applyChrome();
 $('capInput').value = CAPSTONES[lang];
 $('status').textContent = T[lang].intro;

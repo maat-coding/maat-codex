@@ -6,12 +6,14 @@ Author: Telim Maat — House of the Transformed Ma'at (Pr en Ma'at Iret)
 Protocol: MAAT-CODEX-1 | leaf = sha256(chunk-utf8) | network: Ethereum mainnet
 Inscriber address: 0x6F248C06c4bDcf018181059BD1e7Cb4eb66226e0
 MAAT token (ERC-20): 0x1ae560e95d0c8ec6B338DeAD8f44A3BAeE48d4e9
-Reader: https://maatx.io/codex.html | maatx.eth | https://arweave.net/QYPJ6Ns9Q8vlSbMwuamhZaE1Hod4fkZaTVdh7e_SrqA
-Dune map: https://dune.com/queries/7637881
+Reader: https://maatx.io/codex.html | maatx.eth | https://arweave.net/UVveKYDwTF-uobcZ_ylAD90ujUqozrZ-OjhkuNljbj4
+GitHub: https://maat-coding.github.io/maat-codex/ | Dune map: https://dune.com/queries/7637881
 
 
 ================================================================
 BOOK 1 — ЕГИПЕТСКИЕ МИСТЕРИИ. КНИГА ПЕРВАЯ  /  EGYPTIAN MYSTERIES · BOOK ONE
+  Beacon: 0xf4bfbc14547619cbcc1ffebc1f3a452acfea7308b950507a27b539b7c3bdab85
+  Ethscription: 0xcff50945bee09bf89b98d4f23a07256c5310acee93cebe0c840ef223ebc6238d
 ================================================================
 
 ################################################################
@@ -55,6 +57,8 @@ Merkle root: 0x0be2e9e841ecf1f4d114cd6fd5fd7399858910344a22d96631b7097e71fdf7bd
 
 ================================================================
 BOOK 2 — ЕГИПЕТСКИЕ МИСТЕРИИ — 2. КЛЮЧИ ОСИРИСА  /  EGYPTIAN MYSTERIES · BOOK TWO
+  Beacon: 0xe84eee21a95b5922e2551b62c8a2a3ea61747d193bb8cd6e1982212dde97e4da
+  Ethscription: 0xf3306939ba89ae3db1fb5db2961c6859dadc122f7444dc992aaefca045a25339
 ================================================================
 
 ################################################################
@@ -98,6 +102,8 @@ Merkle root: 0xfdd67005c10c1cda10c7a5158a168f6e875b48c9189185f387c4c3527dac6f9b
 
 ================================================================
 BOOK 3 — ЕГИПЕТСКИЕ МИСТЕРИИ — 3. КЛЮЧИ АНУБИСА  /  EGYPTIAN MYSTERIES · BOOK THREE
+  Beacon: 0x6f6dac35efc2400e8fa85bb0dff532da52b5adc668a62c14444a61ca69c87758
+  Ethscription: 0xb1e6cac04ad1589e4eee6195a74e440b200a375e5d9bf0feda49c2d6c0e9de25
 ================================================================
 
 ################################################################
@@ -139,6 +145,8 @@ Merkle root: 0x7f975d4a885203a02f26b3e5023d25c965f3df05d4b4f1cc351f047c40956a07
 
 ================================================================
 BOOK 4 — ЕГИПЕТСКИЕ МИСТЕРИИ — 4  /  Seven Keys · Heka · Isfet · Transformation
+  Beacon: 0x47a02bc0ca10f44adeb2fc6f863df8884971366e3482c598e1c255ee2abedd0a
+  Ethscription: 0xf95c31c9e6c29da77950f2b500f86f31aa0502eacc1554524b90e723cd0562d7
 ================================================================
 
 ################################################################
@@ -178,6 +186,8 @@ Merkle root: 0x958ffd4facc5bf1a1f3b88fee8e63998b901bfeb42597f26ab9c87bbd9de54d0
 
 ================================================================
 BOOK 5 — Архитектура Хаоса. Архитектура Маат  /  Architecture of Chaos. Architecture of Maat
+  Beacon: 0x1bc58747058ee84e9bf35f92514ac845305ce6bb8a0be155bc2cbcbaadec0008
+  Ethscription: 0xd70fc74bb68e9df49792fe022ea032417c824dd505d77814a1d8a164408ff8ad
 ================================================================
 
 ################################################################
@@ -233,9 +243,10 @@ Merkle root: 0xb755ab2b7f004f8a54c4ff3038f6bf67f3f99d341ba192df62aa479640edda9f
 ================================================================
 
 ================================================================
+
+================================================================
 HOW TO RECOVER WITHOUT ANY WEBSITE:
 1. Open any page tx on an Ethereum explorer -> 'View Input As -> UTF-8' = the text.
 2. Concatenate a document's pages in order.
 3. Verify: sha256 each page -> Merkle tree (pairwise, duplicate last if odd) -> compare to Merkle root.
-Beacon tx: 0x1bc58747058ee84e9bf35f92514ac845305ce6bb8a0be155bc2cbcbaadec0008
-Ethscription tx: 0xd70fc74bb68e9df49792fe022ea032417c824dd505d77814a1d8a164408ff8ad
+Each book also has a Beacon (human-readable description) and an Ethscription (data: URI catalog entry), listed per book above.
