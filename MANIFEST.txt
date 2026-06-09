@@ -6,7 +6,7 @@ Author: Telim Maat — House of the Transformed Ma'at (Pr en Ma'at Iret)
 Protocol: MAAT-CODEX-1 | leaf = sha256(chunk-utf8) | network: Ethereum mainnet
 Inscriber address: 0x6F248C06c4bDcf018181059BD1e7Cb4eb66226e0
 MAAT token (ERC-20): 0x1ae560e95d0c8ec6B338DeAD8f44A3BAeE48d4e9
-Reader: https://maatx.io/codex.html | maatx.eth | https://arweave.net/UVveKYDwTF-uobcZ_ylAD90ujUqozrZ-OjhkuNljbj4
+Reader: https://maatx.io/codex.html | maatx.eth | https://arweave.net/gqY7JySIXqJWnQ2Jst7D6d4t01HBtpfGcwGo2VUgLBU
 GitHub: https://maat-coding.github.io/maat-codex/ | Dune map: https://dune.com/queries/7637881
 Zenodo (CERN) DOI: 10.5281/zenodo.20611119 | https://doi.org/10.5281/zenodo.20611119
 
