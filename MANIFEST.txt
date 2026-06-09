@@ -1,13 +1,184 @@
 MAAT CODEX — on-chain manifest / полная карта инскрипции
 ================================================================
 
-Book: "Architecture of Chaos. Architecture of Maat" (Egyptian Mysteries 5) + MAAT Manifesto
+Series: "Egyptian Mysteries" (Books 1–5) + MAAT Manifesto
 Author: Telim Maat — House of the Transformed Ma'at (Pr en Ma'at Iret)
 Protocol: MAAT-CODEX-1 | leaf = sha256(chunk-utf8) | network: Ethereum mainnet
 Inscriber address: 0x6F248C06c4bDcf018181059BD1e7Cb4eb66226e0
 MAAT token (ERC-20): 0x1ae560e95d0c8ec6B338DeAD8f44A3BAeE48d4e9
 Reader: https://maatx.io/codex.html | maatx.eth | https://arweave.net/QYPJ6Ns9Q8vlSbMwuamhZaE1Hod4fkZaTVdh7e_SrqA
 Dune map: https://dune.com/queries/7637881
+
+
+================================================================
+BOOK 1 — ЕГИПЕТСКИЕ МИСТЕРИИ. КНИГА ПЕРВАЯ  /  EGYPTIAN MYSTERIES · BOOK ONE
+================================================================
+
+################################################################
+EDITION: EN  title: EGYPTIAN MYSTERIES · BOOK ONE
+Capstone tx: 0x8c11bca2c911eb9c4c0c9b71a11ed3c312b1bb8e432a6b9ac13f128a75279ecd
+Merkle root: 0x75e47002ead663ab74c7de741c5bba30908719002ba31ef29358f9bf8e837803
+################################################################
+
+  Document: EGYPTIAN MYSTERIES · BOOK ONE (EN)
+  sha256(full): 0x42972798035be5fc0445576cd6f4b4640d314ea840d41d9743aefd90810bd66a
+  Pages (9):
+     1. 0x8be2d0094bebe396663d345600e9b05383fdd6733d824fe30c5a87d86bd23542
+     2. 0xfc5c0ebbe25d3bb87207ed12b4fdfe7e2539643aa901d305c34ffa1f0b76f528
+     3. 0x3adbedc96656f73b2616f5b88c38cd4e0a0d104714410cc76674e19ccf50b26e
+     4. 0x09a619f48dbdc234549739e4ceed69c079c5316c8cf91cd1b1e804583732e29e
+     5. 0xcb7956013da3ddab8c6f1a4b1271946b338450a8483a3ceb5eb517fea2720d2f
+     6. 0xb6455eee98b41c38433a404dcda63de2fd03616baada4d0d726b608070203c25
+     7. 0x8dabca86cd11d1e4cf0ec8b3b7728df37fe00ca9ee5da8c48ab9b11ea17a071c
+     8. 0x615aa711ad871dd186bcff0009c4fded2d9a9418a1f76d822a1ded540323cfd4
+     9. 0x00865a1b6803ad5f60023c19e3fee5f278db2cb7ef9363d75e94546a6fc2ffb4
+
+################################################################
+EDITION: RU  title: ЕГИПЕТСКИЕ МИСТЕРИИ. КНИГА ПЕРВАЯ
+Capstone tx: 0xefde4918e5149898261062b0a60398ff462ca92e341f3fd7c7e11d21418bf21c
+Merkle root: 0x0be2e9e841ecf1f4d114cd6fd5fd7399858910344a22d96631b7097e71fdf7bd
+################################################################
+
+  Document: ЕГИПЕТСКИЕ МИСТЕРИИ. КНИГА ПЕРВАЯ (RU)
+  sha256(full): 0xfd5c05bb905b4843202fa55d2cb623385aca32e7c95d3d0a67ecb4a97035882a
+  Pages (9):
+     1. 0x6a6afb6f12b01134369b6638521d004f6db12b428e15d433481355ea19c18514
+     2. 0x31ee93ae466354849adaf8aa29515461d423879c823a0d69e270ec6963e8dc21
+     3. 0x2e2895ebc043a00e27b4b5a4de9c41509d47c5201545946c86b09797cc6740ff
+     4. 0x10964fe700f55729432b8af05aa00fd02096d334716d526ab742317bbbf83cd6
+     5. 0x64032ca3872e133d46a7c4da9b15fdac713790cf9fba49a54e137048b455f4d0
+     6. 0xe48241cba44334d403da54722535ead2f44eec386216db0204124d62ee0a9b7c
+     7. 0x97da1d8a38b9fa1446ce6331b21125ee87716e2a17dbc50acb1350300b25eea5
+     8. 0x03d11e66f7df1eaa51c128132bf72ccb7567883e34559518d6a013b49a1b0d15
+     9. 0xdc768736228b0f2458910876b0b1b1428af11e27fb710c696f8c9495dd017f1d
+
+
+================================================================
+BOOK 2 — ЕГИПЕТСКИЕ МИСТЕРИИ — 2. КЛЮЧИ ОСИРИСА  /  EGYPTIAN MYSTERIES · BOOK TWO
+================================================================
+
+################################################################
+EDITION: EN  title: EGYPTIAN MYSTERIES · BOOK TWO
+Capstone tx: 0x4b26a8ebc2e09eee199b5335e78b402f8fe49d12f530c4fa345f026eaea5da7d
+Merkle root: 0xa5f4fd8265668f02ddac165f3f545d40de93b23ea2e49d5be877988e0d957af4
+################################################################
+
+  Document: EGYPTIAN MYSTERIES · BOOK TWO (EN)
+  sha256(full): 0xe6e1f4b8fcec04ee0720dee105ecad64740d5f08419bcd7eec637b171cac8366
+  Pages (7):
+     1. 0x989d639ecdeef4b5524d715e57d4defc33383dac5110d4c5a6882cf164149baf
+     2. 0x34bcfaf1cbaf6252f15d0a460d75c33be88dfc305ea0adcc9b2aeadc28fa403d
+     3. 0xf2eee663a489858cd0b2b39bfa275066b264163cc68ef787cb334e844d8f8ef0
+     4. 0x59ba92a9337341ea1fc674b7d2ff7328a9778f1c94bb5e45397bc74f4ce0cec9
+     5. 0x1465ae6e357e0175482b1561e96579ce50e5d0d84e060ca157ab57ffd9c9dcf7
+     6. 0x46ed375056a7353f66eebfe8367508f3b944096be38ce1a0bbc9f25319c3e25e
+     7. 0x2a7c0816e8efcab982e014297912aae724cfb2352bd30d8124553f85fc0163d4
+
+################################################################
+EDITION: RU  title: ЕГИПЕТСКИЕ МИСТЕРИИ — 2. КЛЮЧИ ОСИРИСА
+Capstone tx: 0x5dfc340e7dd2f7b356925041eeb11d353dcb19a9dbcf6249c9766e221519d970
+Merkle root: 0xfdd67005c10c1cda10c7a5158a168f6e875b48c9189185f387c4c3527dac6f9b
+################################################################
+
+  Document: ЕГИПЕТСКИЕ МИСТЕРИИ — 2. КЛЮЧИ ОСИРИСА (RU)
+  sha256(full): 0xc9885bcb878d8aa3584e26c6a67fcff8e9c04bff62b2a822d887291885b9f1e6
+  Pages (11):
+     1. 0x15337474ab746a58d27bb6496026d697b3cb15f41d1642361bf5643bb85920ee
+     2. 0x52028f401e5c96046d9617e3da388bc0e22e8c028b6581cb560799afef9f9517
+     3. 0x20782ca28a70252e17a3a72241c15d07186ee3708b61feaa146c6c02306c8dc0
+     4. 0xbb4d071273657e66cf348aa94daec65d26b82f44e26299977c5d76d674e7e76b
+     5. 0x1d6f86b4cd2469ed1f4aafad6f76066b3d586272628ff431a2073712cbad0af6
+     6. 0x946bf044b7c6e238bcee9222ef653c78801d6f01c7629aa2cf27d806941b991d
+     7. 0xf447d7b5d93632789c8a96ab33f3785642f5835ce59e2f23ab5b7bf5e954c891
+     8. 0x07e682f629e00b6611a62149dd54fe9f2b9e19b7a6515fb50f81df70dc00cd26
+     9. 0xb765ec4008f751217a757722e978a138268384f51a596f05d7d64fcedef59221
+    10. 0xa3ef95bb4313b5d63fdd9aefead8aea61e89a39896a96bae37138a84e22a86cc
+    11. 0x2b92aa8693a97787a88a67ed6685f241ed467fc0916f1e3bde1fb5af693a2528
+
+
+================================================================
+BOOK 3 — ЕГИПЕТСКИЕ МИСТЕРИИ — 3. КЛЮЧИ АНУБИСА  /  EGYPTIAN MYSTERIES · BOOK THREE
+================================================================
+
+################################################################
+EDITION: EN  title: EGYPTIAN MYSTERIES · BOOK THREE
+Capstone tx: 0xd676dcf917ee0fed2de4c5dc432c4c8f8dc955dbe949d79faaa7b096d07693ca
+Merkle root: 0xe0d64c65a2d6073333230b4dc63fd8b4ad4a9ef01db21abb43ed20c1403b8ead
+################################################################
+
+  Document: EGYPTIAN MYSTERIES · BOOK THREE (EN)
+  sha256(full): 0xa2ab34e02e245d73a12bc2b0d31fde3ba8cf062f4d73652f7f3a05fba767aceb
+  Pages (6):
+     1. 0xefb38b67f054c91f60259cc495d1f90e05ccab40ed2810965944a2de0725ae7c
+     2. 0x42d6e2133301b96162d52182caf1bd577cc0fec2b3654b8adcec0cea815df50b
+     3. 0x1d2d3faea7c918fa3ddef5f75966cfb61e44d441eb157d20d4ce9de96fa7659f
+     4. 0x4d66ee76fe357226198bdcdcee278a31256f9308564fe7dc595851fdf6edf955
+     5. 0x8b7ab0379278bbd2fed0ba901d1642b5d2ec1321fbf17a10d85ba8b29987eca5
+     6. 0x4364815e66b3dbbb1b0a06363b1c073d2f3ab8e617c334e9b7902633dbbf96f5
+
+################################################################
+EDITION: RU  title: ЕГИПЕТСКИЕ МИСТЕРИИ — 3. КЛЮЧИ АНУБИСА
+Capstone tx: 0x7de6c08aec8cead78dc0c4cd228dce2401cedeac5fed2e6434a14cc040415468
+Merkle root: 0x7f975d4a885203a02f26b3e5023d25c965f3df05d4b4f1cc351f047c40956a07
+################################################################
+
+  Document: ЕГИПЕТСКИЕ МИСТЕРИИ — 3. КЛЮЧИ АНУБИСА (RU)
+  sha256(full): 0x1cc9036fa01546d47ee535e001e90bd0232037d7efa60c26f0053152269c6121
+  Pages (10):
+     1. 0x0de99b5647b83eced094e846c8c0a04d157231caf3742c846ef38ca2f1e142a8
+     2. 0x1db3aee3aa7fbef8f568ee27c7fa0910ffd44f30723a3404956346aebfba2e33
+     3. 0xef56972ca55393e529fc37824014f5beb0c65a3de61444fae33380f1f0de32a0
+     4. 0x85e934ebf8309b54fc3f2c43c0b4e87fb4ef541caab1815ef0151fbb7b36fde8
+     5. 0x6f5d116072ddced598ab9428d14210401895afbdb1d9344993d8b22ef6f23344
+     6. 0x7bb2dc1015d5c76a04fdddadfe35749563b7f4e416910ee438a6250e2c928743
+     7. 0x5a562822ac50ed8cfa0eb2cf63f01ca1672abfd6ebccd5578a4565ea670a41d7
+     8. 0x04deafa2f7b9482cf56fd42345621224794b4d4b69831105f934fd0998eaf5de
+     9. 0x7e7d4c6c4404bc6024cbd8659a040e43ded564f9ee8f5af581265a1d645849ec
+    10. 0x5341192dc616926b0599613b4ad2c4add209b2336d3d9b198601ba8e78404ad3
+
+
+================================================================
+BOOK 4 — ЕГИПЕТСКИЕ МИСТЕРИИ — 4  /  Seven Keys · Heka · Isfet · Transformation
+================================================================
+
+################################################################
+EDITION: EN  title: Seven Keys · Heka · Isfet · Transformation
+Capstone tx: 0x9637c5add2af51f5fcacaf4f94cd8db40d5e7e13d251b538049bf45dff3b4297
+Merkle root: 0xbaa5c20eb5b067a9bb535a21f7c403b3ea9ca1f2359652b52382ac50987ccd25
+################################################################
+
+  Document: Seven Keys · Heka · Isfet · Transformation (EN)
+  sha256(full): 0xbdc5f408fa80f4be68d17ed85c5dd6e146335f48d61a3e5a6a3214042a0bd3b8
+  Pages (5):
+     1. 0xd911cebfdbd38d9ecb450fc5be805b3b1da402da2cc08d7253f9448c028c6a7c
+     2. 0x5d69b4b27484cb3292d9e4a37081fbdd21d3ddcdab85ec9cdd8ee6b7e4d12fdf
+     3. 0x3a58ea5eba648a1d2bab5f0cf367643ab28b8c23e1611d6808c45693c49f1eae
+     4. 0xfae134cf2bb999f323364cb748014223530b5c7bd554783db3bc7928e5c51f23
+     5. 0xcc1469410f3190b15cebb4eaa67f933b1a67a392f2e968695e7ee751200ac698
+
+################################################################
+EDITION: RU  title: ЕГИПЕТСКИЕ МИСТЕРИИ — 4
+Capstone tx: 0x3351ac5e4b52b0038e2d0b817835e6cd3131806b11c8f3b237135a8b122fd67b
+Merkle root: 0x958ffd4facc5bf1a1f3b88fee8e63998b901bfeb42597f26ab9c87bbd9de54d0
+################################################################
+
+  Document: ЕГИПЕТСКИЕ МИСТЕРИИ — 4 (RU)
+  sha256(full): 0xb007027a0170dc7150bc839db9ebff089c87668ac0fb463c446ed77b3ccdde1a
+  Pages (9):
+     1. 0x9178cf27e21a6cccb01cd6b5dfed896b2f1e244e07c2faa9dd3df3fd836c20a5
+     2. 0x5db3178014a18753cda8fbe9d9ba7e07a740e48e407a9a5eb8cebc09c2bce5fe
+     3. 0xf54b9b0ecf3089bafa1d7fb6585ebeca22599bd59652048c7268828e4bde12ff
+     4. 0x4d2ea9459bd203d40c153ab71e64ed33b3a85962eeb8cdc738dea60e7c0431b0
+     5. 0x11025fc70811d1847882cefb0eb9ab8d2733af516268757398e854a618a118a3
+     6. 0x560a2d25dc0dc8d0d7726e5c8f40a8208ae37bbb8153264c6f267b6be8fc8418
+     7. 0x65412db14d066b9f43ff94d951e07fa40d60c250eb46ccbfdc823183d4c5440d
+     8. 0x20b1060e161989fff45993a4adf6a9feac043b04445b899ba4804c4df2ccff91
+     9. 0x61213542079f500af2f1039c121801996c29ce9048d8a616a01e0c822176da41
+
+
+================================================================
+BOOK 5 — Архитектура Хаоса. Архитектура Маат  /  Architecture of Chaos. Architecture of Maat
+================================================================
 
 ################################################################
 EDITION: EN  title: Egyptian Mysteries 5 — Architecture of Chaos. Architecture of Maat
@@ -58,6 +229,8 @@ Merkle root: 0xb755ab2b7f004f8a54c4ff3038f6bf67f3f99d341ba192df62aa479640edda9f
   sha256(full): 0x0f31d5e56e93a9dea1c26a19b89b0500b9e8b60a0a5b1080062b3eecf25b3827
   Pages (1):
      1. 0xcf64d6af83e9e00526211a15a8a573c839a60a0675779f4361e06b9170c9084f
+
+================================================================
 
 ================================================================
 HOW TO RECOVER WITHOUT ANY WEBSITE:
