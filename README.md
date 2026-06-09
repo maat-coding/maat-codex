@@ -15,6 +15,7 @@ It does **not** depend on any private server. Mirrors:
 - Web: https://maatx.io/codex.html
 - ENS: https://maatx.eth.limo
 - Arweave (permanent, all books): https://arweave.net/UVveKYDwTF-uobcZ_ylAD90ujUqozrZ-OjhkuNljbj4
+- Zenodo (CERN, archive + DOI): https://doi.org/10.5281/zenodo.20611119
 
 ## On-chain coordinates
 

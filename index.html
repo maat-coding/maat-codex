@@ -200,6 +200,7 @@ let ARWEAVE_URL = 'https://arweave.net/UVveKYDwTF-uobcZ_ylAD90ujUqozrZ-OjhkuNljb
 const ENS_URL = 'https://maatx.eth.limo';
 const GITHUB_URL = 'https://maat-coding.github.io/maat-codex/';
 const DUNE_URL = 'https://dune.com/queries/7637881';
+const ZENODO_URL = 'https://doi.org/10.5281/zenodo.20611119';
 let lang = 'ru';
 try{
   const saved = localStorage.getItem('maat_lang');
@@ -249,6 +250,7 @@ const T = {
       mirArweave:'Arweave — вечный хостинг', mirEns:'ENS-имя — maatx.eth', mirGithub:'GitHub — исходник + инструкция',
       findTitle:'Как найти книги в цепи',
       findDune:'Dune — карта всех страниц',
+      findZenodo:'Zenodo (CERN) — архив + DOI',
       steps:[
         'Открой адрес инскрайбера на Etherscan (или любом обозревателе Ethereum) — там видны все транзакции-страницы всех книг.',
         'Найди транзакцию-капстоун нужной книги: в её данных — JSON «MAAT-CODEX-1» со списком всех страниц по порядку и Merkle-корнем.',
@@ -297,6 +299,7 @@ const T = {
       mirArweave:'Arweave — permanent hosting', mirEns:'ENS name — maatx.eth', mirGithub:'GitHub — source + instructions',
       findTitle:'How to discover the books on-chain',
       findDune:'Dune — map of all pages',
+      findZenodo:'Zenodo (CERN) — archive + DOI',
       steps:[
         'Open the inscriber address on Etherscan (or any Ethereum explorer) — all page-transactions of all books are listed there.',
         'Find the capstone transaction of the book you want: its data holds the “MAAT-CODEX-1” JSON with the ordered list of all pages and the Merkle root.',
@@ -368,6 +371,7 @@ function renderRecover(r){
         row(r.mirGithub, GITHUB_URL, GITHUB_URL)+
         '<div class="rc-head">'+esc(r.findTitle)+'</div>'+
         row(r.findDune, DUNE_URL, DUNE_URL)+
+        row(r.findZenodo, '10.5281/zenodo.20611119', ZENODO_URL)+
         '<ol class="rc-steps">'+steps+'</ol>'+
       '</div>'+
     '</details>';
